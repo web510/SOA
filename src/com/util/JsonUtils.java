@@ -69,9 +69,15 @@ public class JsonUtils {
                 content = EntityUtils.toString(response.getEntity(),"utf-8");
                 System.out.println(content);
             }
+            else System.out.println(response.getStatusLine().getStatusCode());
         } catch (IOException e) {
             e.printStackTrace();
         }
         return content;
+    }
+
+    public static String getString(String url, Map<String, String> params) {
+        String body = JsonUtils.sendPost(url,params);
+        return body;
     }
 }

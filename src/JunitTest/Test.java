@@ -4,6 +4,8 @@ import com.util.JsonUtils;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by onlymzzhang on 2017/6/22.
@@ -17,8 +19,8 @@ public class Test {
         System.out.println(new String("中文".getBytes("GB2312"), "UTF8"));
 
 
-        //String param = "sfzh=1&name=1&inDate=2015-01-01&roomType=标准间&phone=1";
-        //JSONObject obj = JsonUtils.getRemoteObject("http://localhost:8081/SOA/orderRoom", param);
-        //System.out.println(obj.toString());
+        Map<String,String> mp = new HashMap<String,String>();
+        String str = JsonUtils.getString("http://www.hs6666.cn/index/click_reserve", mp);
+        System.out.println(str);
     }
 }
