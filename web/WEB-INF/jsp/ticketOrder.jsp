@@ -12,83 +12,29 @@
 
 </div>
 
-<div id="hotelOrderSearch">
-	<div class="booking-form">
-		<div class="col-md-6">
-			<form>
-				<h5 id="arrival">入住日期</h5>
-				<select id="inDay" class="arrival">
-					<option>01</option>
-					<option>02</option>
-					<option>03</option>
-					<option>04</option>
-					<option>05</option>
-					<option>06</option>
-					<option>08</option>
-					<option>09</option>
-					<option>10</option>
-					<option>11</option>
-					<option>12</option>
-					<option>13</option>
-					<option>14</option>
-					<option>15</option>
-					<option>16</option>
-					<option>17</option>
-					<option>18</option>
-					<option>19</option>
-					<option>20</option>
-					<option>21</option>
-					<option>22</option>
-					<option>23</option>
-					<option>24</option>
-					<option>25</option>
-					<option>26</option>
-					<option>27</option>
-					<option>28</option>
-					<option>29</option>
-					<option>30</option>
-					<option>31</option>
-				</select>
-				<select id="inMon" class="arrival">
-					<option>01</option>
-					<option>02</option>
-					<option>03</option>
-					<option>04</option>
-					<option>05</option>
-					<option>06</option>
-					<option>07</option>
-					<option>08</option>
-					<option>09</option>
-					<option>10</option>
-					<option>11</option>
-					<option>12</option>
-				</select>
-				<select id="inYear" class="arrival">
-					<option>2015</option>
-					<option>2016</option>
-					<option>2017</option>
-					<option>2018</option>
-					<option>2019</option>
-					<option>2020</option>
-				</select>
-				<h5>房型</h5>
-				<select id="roomType" name="roomType" class="arrival">
-					<option>标准间</option>
-					<option>大床房</option>
-					<option>总统套房</option>
-				</select>
 
-				<input id="submit" class="prt-btn" type="button" value="确认">
-				<input type="reset" value="重置">
-				<%--<input id="roomType" type="text" value="">--%>
-			</form>
+
+<div class="details" id="hotelOrderList">
+	<div class="container">
+		<div id="orderInfo">
+			<table class="table table-hover">
+				<thead>
+				<tr>
+					<th>#</th>
+					<th>姓名</th>
+					<th>身份证</th>
+					<th>入住日期</th>
+					<th>房型</th>
+					<th>状态</th>
+					<th>操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				<%-- --%>
+				</tbody>
+			</table>
 		</div>
 	</div>
-</div>
-
-
-<div id="hotelOrderList" style="display: none;">
-	<jsp:include page="include/order.jsp"/>
 </div>
 <!-- details -->
 <!-- footer -->
@@ -112,11 +58,11 @@
                     var id = event.currentTarget.id;
                     id = id.match(/(btnId-)([0-9]*)/)[2];
                     id = parseInt(id);
-                    $.post('SOA/cancelOrder',{
+                    $.post('car/dingpiao',{
                         id: id,
                     },function (res) {
                         if(res.status == 1){
-                            alert("删除成功");
+                            alert("订票成功");
                             refreshTable();
                         }
                         else if(res.status == 0) {
@@ -128,8 +74,9 @@
             }
 
             function refreshTable() {
-                $.post('/hotel/queryOrders',{
+                $.post('/car/getAllTicket',{
                 },function (res) {
+                    console.log(res)
                     if(res && res.length > 0){
                         var tbodyHtml = '';
                         for(var i=0;i<res.length;i++){
@@ -146,7 +93,10 @@
                     }
                 });
             }
-            //预定
+
+
+            refreshTable();
+            /*//预定
             $('#submit').click(function () {
                 var inDate = $('#inYear').val() + '-' +
                         $('#inMon').val() + '-' +
@@ -164,7 +114,7 @@
                     }
                 });
             });
-
+*/
         });
     })(jQuery);
 </script>
