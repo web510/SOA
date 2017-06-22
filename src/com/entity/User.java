@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Admin {
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -14,6 +14,8 @@ public class Admin {
 	private String password;
     @Column(length = 20)
 	private String phone;//电话号码
+	private String sfzh;
+	private String realName;
 	private String email;//电子邮件
 
 	public int getId() {
@@ -22,6 +24,22 @@ public class Admin {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getSfzh() {
+		return sfzh;
+	}
+
+	public void setSfzh(String sfzh) {
+		this.sfzh = sfzh;
+	}
+
+	public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
 	}
 
 	public String getUserName() {

@@ -19,14 +19,14 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.service.AdminService;
+import com.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:web/WEB-INF/applicationContext_Junit.xml")
 @WebAppConfiguration("web") // web项目的根目录，默认为 file:src/main/webapp
 public class UserControllerLoginTest {
 	@Autowired
-	private AdminService userService;
+	private UserService userService;
 	@Autowired
 	private WebApplicationContext wac;
 	private MockMvc mockMvc;
@@ -59,9 +59,8 @@ public class UserControllerLoginTest {
 		MvcResult result = resultActions.andReturn();
 		session = (MockHttpSession) result.getRequest().getSession();
 	}
-
-    public void addUser() throws Exception {
-//      {"message":"添加成功","status":1}  {"message":"添加失败，用户已存在！","status":0}
+	@Test
+    public void orderRoom() throws Exception {
         RequestBuilder builder = MockMvcRequestBuilders
                 .post("/SOA/orderRoom")
                 .param("sfzh", "321322199512165417")
@@ -69,10 +68,6 @@ public class UserControllerLoginTest {
                 .param("inDate", "2017-06-29")
                 .param("roomType", "总统套房")
                 .param("phone", "15545016598")
-//                .param("title","教授")
-//                .param("introduction","我就是张猛治，哈哈")
-//                .param("role","teacher")
-//                .param("phone","15545016598")
                 .session(session);
         ResultActions resultActions = mockMvc.perform(builder).andDo(MockMvcResultHandlers.print());
         MvcResult result = resultActions.andReturn();
@@ -123,11 +118,10 @@ public class UserControllerLoginTest {
         MvcResult result = resultActions.andReturn();
         session = (MockHttpSession) result.getRequest().getSession();
     }
-    @Test
     public void nii() throws Exception {
 //	    {"total":2,"rows":[{"role":"teacher","id":2,"userName":"张猛治4","title":"教授","introduction":"我就是张猛治，哈哈"},{"role":"teacher","phone":"15545016598","id":3,"userName":"张猛治5","title":"教授","introduction":"我就是张猛治，哈哈"}]}
         RequestBuilder builder = MockMvcRequestBuilders
-                .post("/admin/ordersListNotInMoney")
+                .post("/hotel/orderRoom")
                 .session(session);
         ResultActions resultActions = mockMvc.perform(builder).andDo(MockMvcResultHandlers.print());
         MvcResult result = resultActions.andReturn();
