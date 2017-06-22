@@ -33,7 +33,9 @@ public class HotelController {
     public String orderRoom(Date inDate, String roomType, HttpSession session) {
         User user = (User)session.getAttribute("user");
         if(user == null) throw new PostException("你还没有登录! ");
-        return JsonUtils.getRemoteObject(base_url+"SOA/orderRoom","sfzh="+user.getSfzh()+"&name="+user.getRealName()+"&inDate="+inDate+"&roomType="+roomType+"&phone="+user.getPhone()).toString();
+        String res = JsonUtils.getRemoteObject(base_url+"SOA/orderRoom","sfzh="+user.getSfzh()+"&name="+user.getRealName()+"&inDate="+inDate+"&roomType="+roomType+"&phone="+user.getPhone()).toString();
+        System.out.println(res);
+        return res;
     }
     //取消订房
     @ResponseBody

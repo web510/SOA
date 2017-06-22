@@ -29,6 +29,7 @@ public class HttpRequest {
             // 设置通用的请求属性
             connection.setRequestProperty("accept", "*/*");
             connection.setRequestProperty("connection", "Keep-Alive");
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
             connection.setRequestProperty("user-agent",
                     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
             // 建立实际的连接
@@ -83,6 +84,7 @@ public class HttpRequest {
             // 设置通用的请求属性
             conn.setRequestProperty("accept", "*/*");
             conn.setRequestProperty("connection", "Keep-Alive");
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
             conn.setRequestProperty("user-agent",
                     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
             // 发送POST请求必须设置如下两行
