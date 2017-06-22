@@ -43,17 +43,11 @@ public class HotelController {
     }
     //查询订单
     @ResponseBody
-    @RequestMapping(value="/cancelOrder",produces = "application/json; charset=utf-8")
+    @RequestMapping(value="/queryOrders",produces = "application/json; charset=utf-8")
     public String queryOrders(HttpSession session) {
         User user = (User)session.getAttribute("user");
         if(user == null) throw new PostException("你还没有登录! ");
         return JsonUtils.getRemoteObject(base_url+"SOA/queryOrders","sfzh="+user.getSfzh()+"&name="+user.getRealName()+"&phone="+user.getPhone()).toString();
-    }
-    @ResponseBody
-    @RequestMapping(value="/queryOrders",produces = "application/json; charset=utf-8")
-    //查询订单
-    public String queryOrders(String sfzh, String name, String phone) {
-        return JsonUtils.getRemoteObject(base_url+"SOA/queryOrders","sfzh="+sfzh+"&name="+name+"&name="+name+"&phone="+phone).toString();
     }
     //查询房间剩余信息
     @ResponseBody

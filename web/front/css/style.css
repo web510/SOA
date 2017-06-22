@@ -64,6 +64,12 @@ label {
     font-weight: 400;
 	    
 }
+.nav-active{
+    border-bottom:2px solid #fff;
+}
+.nav-Nactive{
+    border-bottom:none;
+}
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #fff;
     background-color:#6CBC35;
@@ -1021,7 +1027,7 @@ select.arrival{
 .form-control{
 	width:10%;
 }
-.booking-form input[type="submit"],.booking-form input[type="reset"],.booking-form input[type="button"] {
+.booking-form input[type="submit"],.booking-form input[type="reset"],.booking-form input[type="button"], .prt-btn {
 	margin-top: 25px;
 	font-family: 'Open Sans', sans-serif;
 	cursor: pointer;
@@ -1042,7 +1048,7 @@ select.arrival{
 	-moz-border-radius: 2px;
 	-o-border-radius: 2px;
 }
-.booking-form input[type="submit"]:hover,.booking-form input[type="reset"]:hover,.booking-form input[type="button"]:hover  {
+.booking-form input[type="submit"]:hover,.booking-form input[type="reset"]:hover,.booking-form input[type="button"],.prt-btn:hover  {
 	background: #553A99;
 	border: 1px solid #553A99;
 }
@@ -1054,6 +1060,13 @@ select.arrival{
 	margin: 10px 0;
 	font-size: 1.5em;
 	color:#252525;
+}
+#signIn{
+    float:left;
+}
+#errInfo{
+    margin:1.3em 0;
+    color:red;
 }
 .LatestNews {
 	margin: 1em 0em 2em 0;

@@ -5,6 +5,11 @@
 
 <jsp:include page="include/header.jsp"/>
 <!-- details -->
+<div class="details">
+	<div class="container">
+		<h2>旅游订单</h2>
+	</div>
+</div>
 <jsp:include page="include/order.jsp"/>
 <!-- details -->
 <!-- footer -->
@@ -14,9 +19,6 @@
 <script>
 	(function ($) {
 	    $(document).ready(function () {
-            $('#submit').click(function () {
-                refreshTable();
-            });
             //删除
 			function delectOrder() {
                 $('#orderInfo button').click(function (event) {
@@ -61,7 +63,7 @@
                     }
                 });
             }
-
+            refreshTable();
         });
 	})(jQuery);
 </script>

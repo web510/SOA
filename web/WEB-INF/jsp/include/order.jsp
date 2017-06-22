@@ -9,7 +9,6 @@
 
 <div class="details">
     <div class="container">
-        <h2>酒店订单</h2>
         <div id="orderInfo" style="display: none">
             <table class="table table-hover">
                 <thead>

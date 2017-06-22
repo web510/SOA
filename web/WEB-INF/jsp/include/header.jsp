@@ -21,7 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="header">
         <div class="container">
             <div class="logo">
-                <h1><a href="index.html">Motel</a></h1>
+                <h1><a href="index.html">旅游咨询系统</a></h1>
             </div>
             <nav class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">

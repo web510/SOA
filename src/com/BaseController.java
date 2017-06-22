@@ -14,6 +14,9 @@ public class BaseController {
     @GetMapping("/signIn")
     public String getSignIn() {return "signIn";}
 
+    @GetMapping("/signUp")
+    public String getSignUp() {return "signUp";}
+
     @GetMapping("/rooms")
     public String getRooms() {return "rooms";}
 

@@ -5,18 +5,26 @@
 
 <jsp:include page="include/header.jsp"/>
 <!-- details -->
+<div class="details">
+	<div class="container">
+		<h2>酒店订单</h2>
+	</div>
+</div>
+
 <jsp:include page="include/order.jsp"/>
 <!-- details -->
 <!-- footer -->
 <jsp:include page="include/footer.jsp"/>
 <!-- footer -->
-
 <script>
 	(function ($) {
 	    $(document).ready(function () {
-            $('#submit').click(function () {
-                refreshTable();
-            });
+            function navActive(i) {
+                $('.nav-tab').addClass('.nav-Nactive');
+                $('nav-tab:nth-child('+ i +')').addClass('.nav-active');
+            }
+            navActive(2);
+
             //删除
 			function delectOrder() {
                 $('#orderInfo button').click(function (event) {
@@ -40,10 +48,10 @@
             }
 
             function refreshTable() {
-                $.post('/SOA/queryOrders',{
-                    sfzh: $('#sfzh').val(),
-                    name: $('#name').val(),
-                    phone: $('#phone').val()
+                $.post('/hotel/queryOrders',{
+                    sfzh: 1,
+                    name: 1,
+                    phone: 1
                 },function (res) {
                     if(res && res.length > 0){
                         var tbodyHtml = '';
@@ -61,6 +69,8 @@
                     }
                 });
             }
+
+            refreshTable();
 
         });
 	})(jQuery);
