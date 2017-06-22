@@ -22,5 +22,7 @@ public class Test {
         Map<String,String> mp = new HashMap<String,String>();
         String str = JsonUtils.getString("http://www.hs6666.cn/index/click_reserve", mp);
         System.out.println(str);
+        str = JsonUtils.getString("http://222.27.167.184:8081/getAllTicket", mp);
+        System.out.println(str);
     }
 }
