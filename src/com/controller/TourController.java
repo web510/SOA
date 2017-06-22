@@ -16,7 +16,7 @@ import java.sql.Date;
  * Created by onlymzzhang on 2017/6/21.
  */
 @Controller
-@RequestMapping("hotel")
+@RequestMapping("tour")
 @Transactional
 public class TourController {
     String base_url = "http://www.hs6666.cn/";
