@@ -7,9 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<div class="details">
+<div class="details" id="hotelOrderList">
     <div class="container">
-        <div id="orderInfo" style="display: none">
+        <div id="orderInfo">
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -20,7 +20,6 @@
                     <th>房型</th>
                     <th>状态</th>
                     <th>操作</th>
-
                 </tr>
                 </thead>
                 <tbody>

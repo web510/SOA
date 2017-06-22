@@ -12,7 +12,7 @@
 
 </div>
 
-<div id="hotelOrderSearch" style="overflow: hidden;margin:0 0 100px 100px;">
+<div id="hotelOrderSearch">
 	<div class="booking-form">
 		<div class="col-md-6">
 			<form>
@@ -87,9 +87,7 @@
 </div>
 
 
-
-
-<div id="hotelOrderList" style="display: none">
+<div id="hotelOrderList" style="display: none;">
 	<jsp:include page="include/order.jsp"/>
 </div>
 <!-- details -->
@@ -114,11 +112,11 @@
                     var id = event.currentTarget.id;
                     id = id.match(/(btnId-)([0-9]*)/)[2];
                     id = parseInt(id);
-                    $.post('SOA/cancelOrder',{
+                    $.post('hotel/cancelOrder',{
                         id: id,
                     },function (res) {
                         if(res.status == 1){
-                            alert("删除成功");
+                            alert("取消成功");
                             refreshTable();
 						}
 						else if(res.status == 0) {
@@ -130,20 +128,18 @@
             }
 
             function refreshTable() {
-                $('#hotelOrderSearch').hide();
-			    $('#hotelOrderList').show();
                 $.post('/hotel/queryOrders',{
                 },function (res) {
                     if(res && res.length > 0){
                         var tbodyHtml = '';
-                        $('.booking-form').hide();
                         for(var i=0;i<res.length;i++){
                             var info = res[i];
-                            var button = '<button id="btnId-'+ info.id +'">删除</button>'
+                            var button = '<button id="btnId-'+ info.id +'">取消预定</button>'
                             tbodyHtml += '<tr><td>' + i+1 + '</td><td>'+ info.name +'</td><td>'+ info.sfzh +'</td><td>'+ info.inDate +'</td><td>'+ info.type +'</td><td>'+ info.status +'</td><td>' + button +'</td></tr>';
                         }
                         $('#orderInfo tbody').html(tbodyHtml);
-                        $('#orderInfo').show();
+                        $('#hotelOrderSearch').hide();
+                        $('#hotelOrderList').show();
                         delectOrder();
                     } else {
                         alert('查询失败:' + res.message);
