@@ -15,7 +15,9 @@ import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by onlymzzhang on 2017/6/21.
@@ -33,7 +35,14 @@ public class HotelController {
     public String orderRoom(Date inDate, String roomType, HttpSession session) {
         User user = (User)session.getAttribute("user");
         if(user == null) throw new PostException("你还没有登录! ");
-        String res = JsonUtils.getRemoteObject(base_url+"SOA/orderRoom","sfzh="+user.getSfzh()+"&name="+user.getRealName()+"&inDate="+inDate+"&roomType="+roomType+"&phone="+user.getPhone()).toString();
+        Map<String,String> params = new HashMap<String ,String>();
+        params.put("sfzh",user.getSfzh());
+        params.put("roomType",roomType);
+        params.put("inDate",inDate.toString());
+        params.put("name",user.getRealName());
+        params.put("phone",user.getPhone());
+
+        String res = JsonUtils.getRemoteObject(base_url+"SOA/orderRoom",params).toString();
         System.out.println(res);
         return res;
     }
@@ -41,7 +50,8 @@ public class HotelController {
     @ResponseBody
     @RequestMapping(value="/cancelOrder",produces = "application/json; charset=utf-8")
     public String cancelOrder(int id) {
-        return JsonUtils.getRemoteObject(base_url+"SOA/cancelOrder","id="+id).toString();
+        return "";
+        //return JsonUtils.getRemoteObject(base_url+"SOA/cancelOrder","id="+id).toString();
     }
     //查询订单
     @ResponseBody
@@ -49,7 +59,11 @@ public class HotelController {
     public String queryOrders(HttpSession session) {
         User user = (User)session.getAttribute("user");
         if(user == null) throw new PostException("你还没有登录! ");
-        return JsonUtils.getRemoteList(base_url+"SOA/queryOrders","sfzh="+user.getSfzh()+"&name="+user.getRealName()+"&phone="+user.getPhone()).toString();
+        Map<String,String> params = new HashMap<String ,String>();
+        params.put("sfzh",user.getSfzh());
+        params.put("name",user.getRealName());
+        params.put("phone",user.getPhone());
+        return JsonUtils.getRemoteList(base_url+"SOA/queryOrders",params).toString();
     }
     //查询房间剩余信息
     @ResponseBody

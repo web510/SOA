@@ -37,7 +37,7 @@ public class UserControllerLoginTest {
 	@Before
 	public void setUpSession() throws Exception {
 		mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
-		RequestBuilder builder = MockMvcRequestBuilders.post("/user/signInPost").param("username", "admin").param("password", "123456");
+		RequestBuilder builder = MockMvcRequestBuilders.post("/user/signInPost").param("username", "1").param("password", "1");
 		// 执行
 		ResultActions resultActions = mockMvc.perform(builder).andDo(MockMvcResultHandlers.print());
 		// MockMvcResultHandlers提供结果处理功能
@@ -59,7 +59,6 @@ public class UserControllerLoginTest {
 		MvcResult result = resultActions.andReturn();
 		session = (MockHttpSession) result.getRequest().getSession();
 	}
-	@Test
     public void orderRoom() throws Exception {
         RequestBuilder builder = MockMvcRequestBuilders
                 .post("/user/register")
@@ -118,10 +117,13 @@ public class UserControllerLoginTest {
         MvcResult result = resultActions.andReturn();
         session = (MockHttpSession) result.getRequest().getSession();
     }
+	@Test
     public void nii() throws Exception {
 //	    {"total":2,"rows":[{"role":"teacher","id":2,"userName":"张猛治4","title":"教授","introduction":"我就是张猛治，哈哈"},{"role":"teacher","phone":"15545016598","id":3,"userName":"张猛治5","title":"教授","introduction":"我就是张猛治，哈哈"}]}
         RequestBuilder builder = MockMvcRequestBuilders
                 .post("/hotel/orderRoom")
+				.param("inDate", "2015-10-9")
+				.param("roomType", "标准间")
                 .session(session);
         ResultActions resultActions = mockMvc.perform(builder).andDo(MockMvcResultHandlers.print());
         MvcResult result = resultActions.andReturn();
