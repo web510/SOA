@@ -13,7 +13,6 @@ public class JsonUtils {
         obj.put("message",message);
         return obj.toString();
     }
-
     public static<T> String writeTableList(Long total, List<T> data) {
         JSONObject obj = new JSONObject();
         obj.put("total",total);

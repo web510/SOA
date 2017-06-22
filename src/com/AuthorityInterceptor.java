@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.entity.Admin;
+import com.entity.User;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class AuthorityInterceptor extends HandlerInterceptorAdapter {
@@ -14,7 +14,7 @@ public class AuthorityInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		Admin user = (Admin) session.getAttribute("user");
+		User user = (User) session.getAttribute("user");
 		if (user != null) {
 		    String URI = request.getRequestURI();
             if(URI.matches("/root/.*")) {

@@ -2,11 +2,11 @@ package com.controller;
 
 import com.dao.OrderDao;
 import com.dao.RoomNumberDao;
-import com.entity.Admin;
+import com.entity.User;
 import com.entity.Order_;
 import com.entity.RoomNumber;
 import com.exception.PostException;
-import com.service.AdminService;
+import com.service.UserService;
 import com.util.JsonUtils;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 @Controller
@@ -25,7 +24,7 @@ import java.util.List;
 @RequestMapping("admin")
 public class AdminPostController {
 	@Autowired
-	private AdminService userService;
+	private UserService userService;
 	@Autowired
 	private RoomNumberDao roomNumberDao;
 	@Autowired
@@ -90,7 +89,7 @@ public class AdminPostController {
     @ResponseBody
 	@RequestMapping(value="/signInPost",produces = "application/json; charset=utf-8")
 	public String loginPost(String username, String password, HttpSession session)  {
-		Admin user = userService.getUser(username, password);
+		User user = userService.getUser(username, password);
 		if (user != null) {
 			session.setAttribute("user", user);
 			return JsonUtils.writeStatus(1, user.getClass().toString());
