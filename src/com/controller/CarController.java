@@ -26,7 +26,7 @@ public class CarController {
     @RequestMapping(value="/getAllTicket",produces = "application/json; charset=utf-8")
     public String getAllTicket() {
         Map<String , String> params = new HashMap<String,String>();
-        return JsonUtils.getRemoteObject(base_url+"getAllTicket",params).toString();
+        return JsonUtils.getRemoteList(base_url+"getAllTicket",params).toString();
     }
     @ResponseBody
     @RequestMapping(value="/dingpiao",produces = "application/json; charset=utf-8")
@@ -34,6 +34,6 @@ public class CarController {
         Map<String , String> params = new HashMap<String,String>();
         params.put("number",number);
         params.put("level",level);
-        return JsonUtils.getRemoteList(base_url+"getAllTicket",params).toString();
+        return JsonUtils.getRemoteObject(base_url+"getAllTicket",params).toString();
     }
 }
