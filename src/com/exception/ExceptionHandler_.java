@@ -38,11 +38,11 @@ public class ExceptionHandler_ {
                 return e.getMessage();
             }
 			else
-			    return JsonUtils.writeStatus(0,"服务器出现异常："+e.getMessage());
+			    return JsonUtils.writeStatus(0,"服务器出现异常SOA："+e.getMessage());
 		}
 		else { //get请求出现异常
             response.setStatus(500);
-			return "服务器出现异常："+e.getMessage();
+			return "服务器出现异常SOA："+e.getMessage();
 		}
 	}
 	

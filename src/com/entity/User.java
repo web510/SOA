@@ -16,7 +16,8 @@ public class User {
 	private String phone;//电话号码
 	private String sfzh;
 	private String realName;
-	private String email;//电子邮件
+	@OneToMany(mappedBy = "user")
+	private Set<Order_> order;
 
 	public int getId() {
 		return id;
@@ -66,11 +67,11 @@ public class User {
 		this.phone = phone;
 	}
 
-	public String getEmail() {
-		return email;
+	public Set<Order_> getOrder() {
+		return order;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setOrder(Set<Order_> order) {
+		this.order = order;
 	}
 }

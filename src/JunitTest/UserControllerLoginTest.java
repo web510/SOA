@@ -37,7 +37,7 @@ public class UserControllerLoginTest {
 	@Before
 	public void setUpSession() throws Exception {
 		mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
-		RequestBuilder builder = MockMvcRequestBuilders.post("/admin/signInPost").param("username", "admin").param("password", "123456");
+		RequestBuilder builder = MockMvcRequestBuilders.post("/user/signInPost").param("username", "admin").param("password", "123456");
 		// 执行
 		ResultActions resultActions = mockMvc.perform(builder).andDo(MockMvcResultHandlers.print());
 		// MockMvcResultHandlers提供结果处理功能
@@ -62,11 +62,11 @@ public class UserControllerLoginTest {
 	@Test
     public void orderRoom() throws Exception {
         RequestBuilder builder = MockMvcRequestBuilders
-                .post("/SOA/orderRoom")
+                .post("/user/register")
                 .param("sfzh", "321322199512165417")
-                .param("name", "张猛治")
-                .param("inDate", "2017-06-29")
-                .param("roomType", "总统套房")
+                .param("realName", "张猛治")
+                .param("username", "z572505258")
+                .param("password", "123456")
                 .param("phone", "15545016598")
                 .session(session);
         ResultActions resultActions = mockMvc.perform(builder).andDo(MockMvcResultHandlers.print());

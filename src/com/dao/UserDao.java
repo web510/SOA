@@ -12,10 +12,6 @@ import javax.persistence.Query;
 
 @Repository
 public class UserDao extends GenericDao<User> {
-    @Autowired
-    private RoomDao roomDao;
-    @Autowired
-    private RoomNumberDao roomNumberDao;
 
 	public User find(String userName, String password) {
 		String jpql = "FROM User u WHERE u.userName=:userName AND u.password=:password";
@@ -61,7 +57,7 @@ public class UserDao extends GenericDao<User> {
         return user;
     }
     public void userDelete(int userId) {
-        String jpql = "DELETE from User u where u.id = :userId and u.userName!='root'";
+        String jpql = "DELETE from User u where u.id = :userId";
         Query query = getEntityManager().createQuery(jpql);
         query.setParameter("userId", userId);
         query.executeUpdate();
