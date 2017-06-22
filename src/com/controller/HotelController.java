@@ -3,7 +3,6 @@ package com.controller;
 import com.entity.Order_;
 import com.entity.User;
 import com.exception.PostException;
-import com.service.HotelService;
 import com.util.JsonUtils;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +26,6 @@ import java.util.Map;
 @Transactional
 public class HotelController {
     String base_url = "http://localhost:8081/";
-    @Autowired
-    private HotelService hotelService;
     @ResponseBody
     @RequestMapping(value="/orderRoom",produces = "application/json; charset=utf-8")
     //订房
@@ -49,9 +46,10 @@ public class HotelController {
     //取消订房
     @ResponseBody
     @RequestMapping(value="/cancelOrder",produces = "application/json; charset=utf-8")
-    public String cancelOrder(int id) {
-        return "";
-        //return JsonUtils.getRemoteObject(base_url+"SOA/cancelOrder","id="+id).toString();
+    public String cancelOrder(String id) {
+        Map<String , String> params = new HashMap<String,String>();
+        params.put("id",id);
+        return JsonUtils.getRemoteObject(base_url+"SOA/cancelOrder",params).toString();
     }
     //查询订单
     @ResponseBody
