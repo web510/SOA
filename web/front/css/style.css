@@ -46,8 +46,8 @@ label {
     float:right;
 }
 .navbar-default {
-    background-color:#6cbc35! important;
-    border-color:#6cbc35 ! important;
+    background-color:transparent;
+    border-color:rgba(0,0,0,0.75) ! important;
 }
 .navbar {
     border-radius: 0px ! important;
@@ -72,12 +72,12 @@ label {
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #fff;
-    background-color:#6CBC35;
+    background-color:rgba(0,0,0,0.75);
 	border-bottom:2px solid #fff;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #fff;
-    background-color:#6CBC35;
+    background-color:rgba(0,0,0,0.75);
 	border-bottom:2px solid #fff;
 }
 .glyphicon {
@@ -150,7 +150,7 @@ nav.navbar.navbar-default {
     right: 3em;
     border: none;
     outline: none;
-    background: #553A99;
+    background: #489200;
     width: 100%;
     height: 40px;
     margin: 0;
@@ -221,7 +221,7 @@ nav.navbar.navbar-default {
 }
 /*--*/
 .header {
-    background-color:#6cbc35;
+    background-color:rgba(0,0,0,0.75);
     padding: 1.5em 0;
 }
 .details-1 {
@@ -261,12 +261,12 @@ select#country {
     font-weight: 500;
     border: none;
     width: 100%;
-    background:#553a99;
+    background:#489200;
     padding: 9px 0px;
     outline: none;
 }
 .submit_button input[type="submit"]:hover{
-	background:#6cbc35;
+	background:rgba(0,0,0,0.75);
 }
 input#datepicker, input#datepicker1 {
     padding: 10px 9px 10px 9px;
@@ -283,7 +283,7 @@ input#datepicker, input#datepicker1 {
     background: url(../images/box1.png) no-repeat 94% 50% #FFF;
 }
 .banner {
-  background: url(../images/6.jpg) no-repeat;
+  background: url(../images/666.jpg) no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -320,7 +320,7 @@ input#datepicker, input#datepicker1 {
     margin: 1em 0;
 }
 span {
-    color: #6cbc35;
+    color: rgba(0,0,0,0.75);
 }
 .special {
     background: url(../images/16.jpg) center fixed;
@@ -339,7 +339,7 @@ span {
 }
 .special h3 {
     font-size: 2em;
-    color:#6cbc35;
+    color:rgba(0,0,0,0.75);
     margin: 0;
 }
 .special p {
@@ -377,15 +377,15 @@ span {
 }
 .n-rgt a {
     padding-left: 13px;
-    color: #6cbc35;
+    color: rgba(0,0,0,0.75);
 }
 .quick h5 {
     font-size: 2.2em;
-    color:#553a99;
+    color:#489200;
 }
 .quick h6 {
     font-size: 2em;
-    color: #6cbc35;
+    color: rgba(0,0,0,0.75);
 }
 .new {
     padding: 0 0 1em;
@@ -400,7 +400,7 @@ span {
     font-size: 1em;
     font-weight: 300;
     color: #A0A0A0;
-    border:1px solid #6cbc35;
+    border:1px solid rgba(0,0,0,0.75);
     margin-bottom: 1em;
 }
 .quick input[type="submit"] {
@@ -409,10 +409,10 @@ span {
     outline: none;
     border: none;
     color: #fff;
-    background:#553a99;
+    background:#489200;
 }
 .quick input[type="submit"]:hover {
-    background: #6cbc35;
+    background: rgba(0,0,0,0.75);
     transition: 0.5s all;
     -webkit-transition: 0.5s all;
     -o-transition: 0.5s all;
@@ -427,7 +427,7 @@ span {
     outline: none;
     background: none;
     color: #A0A0A0;
-    border: 1px solid #6cbc35;
+    border: 1px solid rgba(0,0,0,0.75);
     display: block;resize: none;
     width: 100%;
     min-height: 100px;
@@ -438,7 +438,7 @@ span {
     line-height: 2.5em;
 }
 .quick li a:hover{
-    color:#6cbc35;
+    color:rgba(0,0,0,0.75);
 }
 /* Shutter In Horizontal */
 .hvr-shutter-in-horizontal {
@@ -451,7 +451,7 @@ span {
     backface-visibility: hidden;
     -moz-osx-font-smoothing: grayscale;
     position: relative;
-    background: #6cbc35;
+    background: rgba(0,0,0,0.75);
     -webkit-transition-property: color;
     transition-property: color;
     -webkit-transition-duration: 0.3s;
@@ -469,7 +469,7 @@ span {
   bottom: 0;
   left: 0;
   right: 0;
-  background:#553a99;
+  background:#489200;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
   -webkit-transform-origin: 50%;
@@ -490,7 +490,7 @@ span {
   transform: scaleX(0);
 }
 .footer {
-  background:#553A99;
+  background:#489200;
   padding: 3em 0;
 }
 .footer h4 {
@@ -505,12 +505,12 @@ span {
   line-height: 2em;
 }
 .footer li a {
-  color: #BBA6F1;
+  color: #88d2f7;
   font-size: 1em;
   text-decoration: none;
 }
 .footer li a:hover{
-	color:#6cbc35;
+	color:rgba(0,0,0,0.75);
 }
 .footer p {
   color: #a1a1a1;
@@ -521,7 +521,7 @@ span {
   color: #3498db;
 }
 .footer-bottom a {
-  color: #6cbc35;
+  color: rgba(0,0,0,0.75);
   font-size: 1em;
   line-height: 1.8em;
   text-decoration:none;
@@ -575,7 +575,7 @@ i.paypal {
     font-size: 1em;
     font-weight: 300;
     color: #C0F59C;
-    background: #6cbc35;
+    background: rgba(0,0,0,0.75);
     border: none;
     margin-bottom: 1em;
 }
@@ -583,7 +583,7 @@ i.paypal {
   font-size: 0.875em;
   font-weight: 300;
   color: #fff;
-  background: #B395FF;
+  background: #88d2f7;
   padding: 0.4em 0em;
   border: none;
   width: 46% !important;
@@ -596,7 +596,7 @@ i.paypal {
 }
 .footer input[type="submit"]:hover{
  color: #fff;
-  background: #6cbc35;
+  background: rgba(0,0,0,0.75);
 }
 .soci li{
 	display:inline-block;
@@ -655,7 +655,7 @@ i.g-1:hover{
 	line-height: 1.8em;
 }
 .acount-btn {
-	background:#553A99;
+	background:#489200;
 	color: #FFF;
 	font-size: 1em;
 	padding: 0.7em 1.2em;
@@ -667,7 +667,7 @@ i.g-1:hover{
 	text-transform: uppercase;
 }
 .acount-btn:hover, .login-right input[type="submit"]:hover{
-	background:#6cbc35;
+	background:rgba(0,0,0,0.75);
 	text-decoration:none;
 	color:#fff;
 }
@@ -686,27 +686,27 @@ i.g-1:hover{
 }
 .login-right input[type="text"] {
 	border: 1px solid #EEE;
-	outline-color:#6cbc35;
+	outline-color:rgba(0,0,0,0.75);
 	width: 96%;
 	font-size:1em;
 	padding: 0.5em;
 }
 .login-right input[type="password"] {
 	border: 1px solid #EEE;
-	outline-color:#6cbc35;
+	outline-color:rgba(0,0,0,0.75);
 	width: 96%;
 	font-size:1em;
 	padding: 0.5em;
 }
 .register-top-grid input[type="password"], .register-bottom-grid input[type="password"] {
   border: 1px solid #EEE;
-  outline-color: #6cbc35;
+  outline-color: rgba(0,0,0,0.75);
   width: 96%;
   font-size: 1em;
   padding: 0.5em;
 }
 .login-right input[type="submit"] {
-	background:#553A99;
+	background:#489200;
 	color: #FFF;
 	font-size: 1em;
 	padding: 0.7em 1.2em;
@@ -751,7 +751,7 @@ a.forgot {
 }
 .register-top-grid input[type="text"], .register-bottom-grid input[type="text"] {
 	border: 1px solid #EEE;
-	outline-color:#6cbc35;
+	outline-color:rgba(0,0,0,0.75);
 	width: 96%;
 	font-size: 1em;
 	padding: 0.5em;
@@ -793,7 +793,7 @@ a.forgot {
 	width:20px;
 	height:20px;
 	outline: none;
-	border: 2px solid #6cbc35;
+	border: 2px solid rgba(0,0,0,0.75);
 }
 .checkbox input + i:after {
 	content: '';
@@ -828,7 +828,7 @@ a.forgot {
 	margin-top:1em;
 }
 .register-but form input[type="submit"] {
-  background: #553A99;
+  background: #489200;
   color: #FFF;
   font-size: 1.2em;
   padding: 0.4em 1.5em;
@@ -842,13 +842,13 @@ a.forgot {
   outline: none;
 }
 .register-but input[type="submit"]:hover {
-	background:#6cbc35;
+	background:rgba(0,0,0,0.75);
 }
 div.register-bottom-grid {
 	margin-top:3em;
 }
 .banner1 {
-  background: url(../images/6.jpg) no-repeat;
+  background: url(../images/666.jpg) no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -857,7 +857,7 @@ div.register-bottom-grid {
   min-height: 250px;
 }
 .details span {
-  color: #6cbc35;
+  color: rgba(0,0,0,0.75);
   font-size: 2em;
   font-weight: 400;
   margin-bottom: 1em;
@@ -881,7 +881,7 @@ div.register-bottom-grid {
   padding: 2em 0 0;
 }
 .details h3 {
-  color: #553A99;
+  color: #489200;
   font-size: 1.7em;
   font-weight: 500;
   margin-bottom: 1em;
@@ -894,7 +894,7 @@ div.register-bottom-grid {
 }
 .details-top h6 {
     color: #B5F589;
-    background: #6cbc35;
+    background: rgba(0,0,0,0.75);
     font-size: 1em;
     font-weight: 400;
     padding: 0.5em 1em;
@@ -902,7 +902,7 @@ div.register-bottom-grid {
     width: 37%;
 }
 .details-top h4 {
-  color: #553A99;
+  color: #489200;
   font-size: 1.3em;
   font-weight: 500;
   margin: 1em 0;
@@ -934,7 +934,7 @@ a.more:hover{
   font-family: 'Montserrat', sans-serif;
 }
 .single h3 a:hover{
-	color:#6cbc35;
+	color:rgba(0,0,0,0.75);
 }
 .single p {
   font-size: 1em;
@@ -947,12 +947,12 @@ a.more:hover{
     font-weight: 500;
     font-style: italic;
     margin: 1em 0;
-    color: #553a99;
+    color: #489200;
 }
 .single h6 {
     font-size: 1.1em;
     color: #fff;
-    background: #6cbc35;
+    background: rgba(0,0,0,0.75);
     padding: 0.5em 1em;
     width: 66%;
 }
@@ -1018,7 +1018,7 @@ select.arrival{
 	-webkit-appearance: none;
 }
 .booking-form input[type="text"]:hover,.booking-form textarea:hover {
-	border: 1px solid #6cbc35;
+	border: 1px solid rgba(0,0,0,0.75);
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
@@ -1031,8 +1031,8 @@ select.arrival{
 	margin-top: 25px;
 	font-family: 'Open Sans', sans-serif;
 	cursor: pointer;
-	background: #6cbc35;
-	border: 1px solid #6cbc35;
+	background: rgba(0,0,0,0.75);
+	border: 1px solid rgba(0,0,0,0.75);
 	padding: 10px 24px;
 	outline: none;
 	color: #ffffff;
@@ -1049,8 +1049,8 @@ select.arrival{
 	-o-border-radius: 2px;
 }
 .booking-form input[type="submit"]:hover,.booking-form input[type="reset"]:hover,.booking-form input[type="button"],.prt-btn:hover  {
-	background: #553A99;
-	border: 1px solid #553A99;
+	background: #489200;
+	border: 1px solid #489200;
 }
 .booking-form textarea {
 	resize: none;
@@ -1090,7 +1090,7 @@ select.arrival{
 }
 .offers h4 {
     font-size: 1.2em;
-    color: #6cbc35;
+    color: rgba(0,0,0,0.75);
     line-height: 1.2em;
     margin: 1em 0 0;
 }
@@ -1165,15 +1165,15 @@ address {
 	cursor: pointer;
 	font-weight: 700;
 	margin: 20px 0 0 0px;
-	border: 1px solid #553a99;
-	background:#553a99;
+	border: 1px solid #489200;
+	background:#489200;
 	outline: none;
 	width: 100%;
 }
 .submit-btn input[type=submit]:hover {
 	color:#fff;
-	background: #6cbc35;
-	border:1px solid #6cbc35;
+	background: rgba(0,0,0,0.75);
+	border:1px solid rgba(0,0,0,0.75);
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;
@@ -1187,13 +1187,13 @@ address {
 }
 .contact h4 {
     font-size: 1.5em;
-    color: #6cbc35;
+    color: rgba(0,0,0,0.75);
     margin: 0 0 1em;
 }
 /*--map-end--*/
 /*--Typography--*/
 h3.title {
-    color: #6cbc35;
+    color: rgba(0,0,0,0.75);
     font-size: 2em;
 }
 .show-grid [class^=col-] {
@@ -1682,7 +1682,7 @@ nav.navbar.navbar-default {
   background-color: #fff;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color:#6cbc35;
+  background-color:rgba(0,0,0,0.75);
 }
 .navbar-nav {
     margin: 7.5px 0px;
@@ -1693,8 +1693,8 @@ nav.navbar.navbar-default {
     border-color: #fff;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: #6cbc35;
-    background: #553A99;
+    border-color: rgba(0,0,0,0.75);
+    background: #489200;
 }
 .navigation {
     margin: 0.5em 0 0;
@@ -1709,7 +1709,7 @@ nav.navbar.navbar-default {
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #fff;
-    background-color:#6CBC35;
+    background-color:rgba(0,0,0,0.75);
 }
 .navbar-default .navbar-nav > li > a {
     color: #fff;
