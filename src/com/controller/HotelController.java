@@ -47,7 +47,7 @@ public class HotelController {
     public String queryOrders(HttpSession session) {
         User user = (User)session.getAttribute("user");
         if(user == null) throw new PostException("你还没有登录! ");
-        return JsonUtils.getRemoteObject(base_url+"SOA/queryOrders","sfzh="+user.getSfzh()+"&name="+user.getRealName()+"&phone="+user.getPhone()).toString();
+        return JsonUtils.getRemoteList(base_url+"SOA/queryOrders","sfzh="+user.getSfzh()+"&name="+user.getRealName()+"&phone="+user.getPhone()).toString();
     }
     //查询房间剩余信息
     @ResponseBody

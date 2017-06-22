@@ -19,8 +19,9 @@ public class JsonUtils {
         obj.put("rows",data);
         return obj.toString();
     }
-    public static List<JSONObject> getRemoteList(String url , String[] posts) {
-        return null;
+    public static JSONArray getRemoteList(String url , String param) {
+        String sr=HttpRequest.sendPost(url, param);
+        return new JSONArray(sr);
     }
     public static JSONObject getRemoteObject(String url , String param) {
         //发送 POST 请求
