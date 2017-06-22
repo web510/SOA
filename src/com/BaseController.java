@@ -20,8 +20,15 @@ public class BaseController {
     @GetMapping("/details")
     public String getDetails() {return "details";}
 
-    @GetMapping("/myOrder")
-    public String getMyOrder() {return "myOrder";}
+    @GetMapping("/hotelOrder")
+    public String getHotelOrder() {return "hotelOrder";}
+
+    @GetMapping("/ticketOrder")
+    public String getTicketOrder() {return "ticketOrder";}
+
+    @GetMapping("/travelOrder")
+    public String getTravelOrder() {return "travelOrder";}
+
 
     @GetMapping("/admin/{view}")
     public void getView2() {}

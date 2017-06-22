@@ -24,7 +24,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header">
 		<div class="container">
 			<div class="logo">
-				<h1><a href="index.html">宾馆预订系统</a></h1>
+				<h1><a href="index.html">旅游咨询系统</a></h1>
 			</div>
 			<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
@@ -36,15 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</button>
 				</div>
 				<!--/.navbar-header-->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="index">主页</a></li>
-						<li><a href="rooms">房间预订</a></li>
-						<li><a href="myOrder">我的订单</a></li>
-						<li><a href="contact">联系我们</a></li>
-						<li><a href="signIn">登录</a></li>
-					</ul>
-				</div>
+				<jsp:include page="include/nav.jsp"/>
 				<!--/.navbar-collapse-->
 			</nav>
 			<div class="clearfix"> </div>
