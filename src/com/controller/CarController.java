@@ -21,11 +21,19 @@ import java.util.Map;
 @Transactional
 public class CarController {
     String base_url = "http://222.27.167.184:8081/";
-    //取消订房
+    //获取所有车票
     @ResponseBody
     @RequestMapping(value="/getAllTicket",produces = "application/json; charset=utf-8")
     public String getAllTicket() {
         Map<String , String> params = new HashMap<String,String>();
         return JsonUtils.getRemoteObject(base_url+"getAllTicket",params).toString();
+    }
+    @ResponseBody
+    @RequestMapping(value="/dingpiao",produces = "application/json; charset=utf-8")
+    public String dingpiao(String number, String level) {
+        Map<String , String> params = new HashMap<String,String>();
+        params.put("number",number);
+        params.put("level",level);
+        return JsonUtils.getRemoteList(base_url+"getAllTicket",params).toString();
     }
 }
