@@ -52,7 +52,33 @@
 <script>
     (function ($) {
         $(document).ready(function () {
-            $.post('/tour/check_state', {
+
+            function refreshButton() {
+                $.post('/tour/check_state', {
+                }, function (res) {
+                    if (res.status == 0) {
+                        $('#travelOrder').html('现在预定');
+                        $('#travelOrder').click(function () {
+                            $.post('/tour/click_reserve', {}, function (res) {
+                                if(res.status == 1)
+                                    refreshButton();
+                                else
+                                    alert(res.message);
+                            })
+                        });
+                    } else if (res.status == 1) {
+                        $('#travelOrder').html('取消预定');
+                        $('#travelOrder').click(function () {
+                            $.post('/tour/click_cancel', {}, function () {
+                                refreshButton();
+                            })
+                        });
+                    }
+                });
+            }
+            refreshButton();
+            
+            /*$.post('/tour/check_state', {
 			}, function (res) {
                 if (res.status == 0) {
                     $('#travelOrder').html('现在预定');
@@ -72,7 +98,7 @@
                         })
                     });
                 }
-            });
+            });*/
         })
     })(jQuery);
 </script>
