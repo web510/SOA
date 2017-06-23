@@ -57,8 +57,11 @@
                 if (res.status == 0) {
                     $('#travelOrder').html('现在预定');
                     $('#travelOrder').click(function () {
-                        $.post('/tour/click_reserve', {}, function () {
-                            window.location.href = "travelOrder";
+                        $.post('/tour/click_reserve', {}, function (res) {
+                            if(res.status == 1)
+                            	window.location.href = "travelOrder";
+                            else
+                                alert(res.message);
                         })
                     });
                 } else if (res.status == 1) {
