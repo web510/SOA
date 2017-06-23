@@ -39,34 +39,24 @@
 <!-- footer -->
 <jsp:include page="include/footer.jsp"/>
 <!-- footer -->
-<div class="modal fade" id="ErrorAlert" tabindex="-1" role="dialog"
-	 aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
+<!-- Modal -->
+<div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close"
-						data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-				<h4 class="modal-title" id="myModalLabel">
-					选择席位
-				</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">预定</h4>
 			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-sm-10 col-sm-offset-1">
-						<strong><p id="AlertP"></p></strong>
-					</div>
-				</div>
+			<div class="modal-body" id="ticketRadios">
+				<%--<input type="radio" />--%>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary" id="ErrorAlertClose"
-						data-dismiss="modal">确认
-				</button>
+				<button id="ticketOk" type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+		</div>
+	</div>
+</div>
 
 <script>
 
@@ -78,29 +68,34 @@
             }
             navActive(2);
 
-            //删除
+            //预订
             function delectOrder() {
-                $('#orderInfo button').click(function (event) {
-
-                });
-                $('#TTTTT').click(function(){
-                    //console.log(event)
+                $('#hotelOrderList tr button').click(function (event) {
                     var id = event.currentTarget.id;
-                    id = id.match(/(btnId-)([0-9]*)/)[2];
-                    id = parseInt(id);
-                    $.post('car/dingpiao',{
-                        id: id,
-                    },function (res) {
-                        if(res.status == 1){
-                            alert("订票成功");
-                            refreshTable();
-                        }
-                        else if(res.status == 0) {
-                            alert(res.message);
-                        }
+                    id = id.match(/(ticketId-)([0-9]*)/)[2];
+                    var radiosHtml = '';
+                    radiosHtml += '<label><input type="radio" name="ticketIn" value="一等座"/>一等座</label>一等座   ';
+                    radiosHtml += '<label><input type="radio" name="ticketIn" value="二等座"/>二等座</label>二等座   ';
+                    $('#ticketRadios').html(radiosHtml);
+                    var yes = function () {
+                        var level = $("input[name='ticketIn']:checked").val();
+                        $.post('car/dingpiao',{
+                            number: id,
+                            level: level
+                        },function (res) {
+                            console.log(res);
+                            if(res.status == 1){
+                                alert("订票成功");
+                                refreshTable();
+                            }
+                            else if(res.status == 0) {
+                                alert(res.message);
+                            }
 
-                    });
-				})
+                        });
+                    }
+                    $('#ticketOk').click(yes);
+                });
             }
 
             function refreshTable() {
@@ -111,12 +106,10 @@
                         var tbodyHtml = '';
                         for(var i=0;i<res.length;i++){
                             var info = res[i];
-                            var button = '<button id="btnId-'+ info.id +'">预订</button>'
+                            var button = '<button id="ticketId-'+ info.number +'" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#ticketModal\">预订</button>'
                             tbodyHtml += '<tr><td>' + info.id + '</td><td>'+ info.date +'</td><td>'+ info.number +'</td><td>'+ info.start +'</td><td>'+ info.end +'</td><td>' + button +'</td></tr>';
                         }
                         $('#orderInfo tbody').html(tbodyHtml);
-                        $('#hotelOrderSearch').hide();
-                        $('#hotelOrderList').show();
                         delectOrder();
                     } else {
                         alert('查询失败:' + res.message);

@@ -42,6 +42,6 @@ public class CarController {
         Map<String , String> params = new HashMap<String,String>();
         params.put("number",number);
         params.put("level",level);
-        return JsonUtils.getRemoteObject(base_url+"getAllTicket",params).toString();
+        return JsonUtils.getRemoteObject(base_url+"dingpiao",params).toString();
     }
 }

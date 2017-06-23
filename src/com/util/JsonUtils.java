@@ -73,6 +73,7 @@ public class JsonUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(content);
         return content;
     }
 
