@@ -21,11 +21,10 @@
 				<thead>
 				<tr>
 					<th>#</th>
-					<th>姓名</th>
-					<th>身份证</th>
-					<th>入住日期</th>
-					<th>房型</th>
-					<th>状态</th>
+					<th>日期</th>
+					<th>车次</th>
+					<th>始发站</th>
+					<th>终点站</th>
 					<th>操作</th>
 				</tr>
 				</thead>
@@ -40,6 +39,34 @@
 <!-- footer -->
 <jsp:include page="include/footer.jsp"/>
 <!-- footer -->
+<div class="modal fade" id="ErrorAlert" tabindex="-1" role="dialog"
+	 aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close"
+						data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					选择席位
+				</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<strong><p id="AlertP"></p></strong>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" id="ErrorAlertClose"
+						data-dismiss="modal">确认
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <script>
 
@@ -54,6 +81,9 @@
             //删除
             function delectOrder() {
                 $('#orderInfo button').click(function (event) {
+
+                });
+                $('#TTTTT').click(function(){
                     //console.log(event)
                     var id = event.currentTarget.id;
                     id = id.match(/(btnId-)([0-9]*)/)[2];
@@ -70,7 +100,7 @@
                         }
 
                     });
-                });
+				})
             }
 
             function refreshTable() {
@@ -81,8 +111,8 @@
                         var tbodyHtml = '';
                         for(var i=0;i<res.length;i++){
                             var info = res[i];
-                            var button = '<button id="btnId-'+ info.id +'">删除</button>'
-                            tbodyHtml += '<tr><td>' + i+1 + '</td><td>'+ info.name +'</td><td>'+ info.sfzh +'</td><td>'+ info.inDate +'</td><td>'+ info.type +'</td><td>'+ info.status +'</td><td>' + button +'</td></tr>';
+                            var button = '<button id="btnId-'+ info.id +'">预订</button>'
+                            tbodyHtml += '<tr><td>' + info.id + '</td><td>'+ info.date +'</td><td>'+ info.number +'</td><td>'+ info.start +'</td><td>'+ info.end +'</td><td>' + button +'</td></tr>';
                         }
                         $('#orderInfo tbody').html(tbodyHtml);
                         $('#hotelOrderSearch').hide();

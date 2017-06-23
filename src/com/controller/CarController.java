@@ -3,6 +3,8 @@ package com.controller;
 import com.entity.User;
 import com.exception.PostException;
 import com.util.JsonUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,6 +28,12 @@ public class CarController {
     @RequestMapping(value="/getAllTicket",produces = "application/json; charset=utf-8")
     public String getAllTicket() {
         Map<String , String> params = new HashMap<String,String>();
+//        JSONArray remoteList = JsonUtils.getRemoteList(base_url + "getAllTicket", params);
+//        for(int i=0;i<remoteList.length();i++) {
+//            JSONObject obj = (JSONObject)remoteList.get(i);
+//            int id = (int)obj.get("id");
+//
+//        }
         return JsonUtils.getRemoteList(base_url+"getAllTicket",params).toString();
     }
     @ResponseBody
