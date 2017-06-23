@@ -94,6 +94,7 @@
 
                         });
                     }
+                    $('#ticketOk').unbind();
                     $('#ticketOk').click(yes);
                 });
             }

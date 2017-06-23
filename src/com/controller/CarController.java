@@ -3,6 +3,7 @@ package com.controller;
 import com.entity.User;
 import com.exception.PostException;
 import com.util.JsonUtils;
+import net.sf.json.JSON;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -42,6 +43,8 @@ public class CarController {
         Map<String , String> params = new HashMap<String,String>();
         params.put("number",number);
         params.put("level",level);
-        return JsonUtils.getRemoteObject(base_url+"dingpiao",params).toString();
+        String str = JsonUtils.getString(base_url+"dingpiao",params);
+        if(str.equals("成功预订一张票")) return JsonUtils.writeStatus(1,str);
+        else return JsonUtils.writeStatus(0,str);
     }
 }
