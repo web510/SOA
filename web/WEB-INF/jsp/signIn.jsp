@@ -23,7 +23,7 @@
 							<span>Password<label>*</label></span>
 							<input id="password" type="password">
 						</div>
-						<input id="signIn"  class="prt-btn" type="button" value="登陆">
+						<input id="signIn"  class="prt-btn" type="button" value="登录">
 					</form>
 			   </div>	
 				<div class="clearfix"> </div>
