@@ -121,9 +121,7 @@ public class UserControllerLoginTest {
     public void nii() throws Exception {
 //	    {"total":2,"rows":[{"role":"teacher","id":2,"userName":"张猛治4","title":"教授","introduction":"我就是张猛治，哈哈"},{"role":"teacher","phone":"15545016598","id":3,"userName":"张猛治5","title":"教授","introduction":"我就是张猛治，哈哈"}]}
         RequestBuilder builder = MockMvcRequestBuilders
-                .post("/hotel/orderRoom")
-				.param("inDate", "2015-10-9")
-				.param("roomType", "标准间")
+                .post("/tour/click_reserve")
                 .session(session);
         ResultActions resultActions = mockMvc.perform(builder).andDo(MockMvcResultHandlers.print());
         MvcResult result = resultActions.andReturn();
