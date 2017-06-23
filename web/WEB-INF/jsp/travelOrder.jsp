@@ -50,14 +50,8 @@
 </div>
 
 <script>
-
     (function ($) {
         $(document).ready(function () {
-            function navActive(i) {
-                $('.nav-tab').addClass('.nav-Nactive');
-                $('nav-tab:nth-child(' + i + ')').addClass('.nav-active');
-            }
-
             $.post('/tour/check_state', {
 			}, function (res) {
                 if (res.status == 0) {
@@ -67,7 +61,7 @@
                             window.location.href = "travelOrder";
                         })
                     });
-                } else {
+                } else if (res.status == 1) {
                     $('#travelOrder').html('取消预定');
                     $('#travelOrder').click(function () {
                         $.post('/tour/click_cancel', {}, function () {
