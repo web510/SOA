@@ -34,7 +34,7 @@ public class TourController {
         mp.put("p_number",user.getPhone());
         String res = JsonUtils.getString(base_url+"welcome/click_reserve",mp).toString();
         if(res.equals("ok")) return JsonUtils.writeStatus(1,"");
-        else return JsonUtils.writeStatus(0,res);
+        else return JsonUtils.writeStatus(0,"余票不足，请明天再来");
     }
     @ResponseBody
     @RequestMapping(value="/check_state",produces = "application/json; charset=utf-8")
