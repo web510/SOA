@@ -34,7 +34,7 @@ public class TourController {
         mp.put("p_number",user.getPhone());
         String res = JsonUtils.getString(base_url+"welcome/click_reserve",mp).toString();
         if(res.equals("ok")) return JsonUtils.writeStatus(1,"");
-        else return JsonUtils.writeStatus(0,"预定失败");
+        else return JsonUtils.writeStatus(0,res);
     }
     @ResponseBody
     @RequestMapping(value="/check_state",produces = "application/json; charset=utf-8")
@@ -58,7 +58,10 @@ public class TourController {
         mp.put("user_id",""+(-user.getId()));
         String res = JsonUtils.getString(base_url+"welcome/click_cancel",mp).toString();
         if(res.equals("ok")) return JsonUtils.writeStatus(1,"");
-        else return JsonUtils.writeStatus(0,"");
+        else {
+            System.out.println(res);
+            return JsonUtils.writeStatus(0,"");
+        }
     }
     @ResponseBody
     @RequestMapping(value="/travel",produces = "application/json; charset=utf-8")
